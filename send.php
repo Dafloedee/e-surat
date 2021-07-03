@@ -77,13 +77,13 @@ $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
 $mail->Host = "smtp.gmail.com";
 $mail->Port = 465; // or 587
 $mail->IsHTML(true);
-$mail->Username = "wanyedarwin@gmail.com";
-$mail->Password = "lawren2525";
-$mail->SetFrom("wanyedarwin@gmail.com");
+$mail->Username = "xxxxxxx@xxxxxxxxxxxx.com";
+$mail->Password = "xxxxxxxxxxxxxx";
+$mail->SetFrom("xxxxxxx@gmail.com");
 $mail->Subject = $_POST['hal'];
 $mail->Body = "Ini adalah pesan otomatis, jangan dibalas";
 $mail->addStringAttachment($pdfdoc, ''.$_POST['hal'].'.pdf');
-$mail->AddAddress("wanyedarwin@gmail.com");
+$mail->AddAddress("xxxxxxxxxxxxxxxx@xxxxxxxx");
 $mail->AddAddress("glnsteven72@gmail.com");
 
  if(!$mail->Send()) {
