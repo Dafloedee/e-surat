@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 
 require('fpdf/fpdf.php');
 
@@ -77,14 +77,13 @@ $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
 $mail->Host = "smtp.gmail.com";
 $mail->Port = 465; // or 587
 $mail->IsHTML(true);
-$mail->Username = "xxxxxxx@xxxxxxxxxxxx.com";
-$mail->Password = "xxxxxxxxxxxxxx";
-$mail->SetFrom("xxxxxxx@gmail.com");
+$mail->Username =  $_SESSION["username"];
+$mail->Password = $_SESSION["password"];
+$mail->SetFrom(''.$_SESSION["username"].'');
 $mail->Subject = $_POST['hal'];
 $mail->Body = "Ini adalah pesan otomatis, jangan dibalas";
 $mail->addStringAttachment($pdfdoc, ''.$_POST['hal'].'.pdf');
-$mail->AddAddress("xxxxxxxxxxxxxxxx@xxxxxxxx");
-$mail->AddAddress("glnsteven72@gmail.com");
+$mail->AddAddress(''.$_POST['penerima'].'');
 
  if(!$mail->Send()) {
     echo "Mailer Error: " . $mail->ErrorInfo;

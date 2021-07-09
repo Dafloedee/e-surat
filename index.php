@@ -1,3 +1,14 @@
+<?php
+// Initialize the session
+session_start();
+ 
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -61,6 +72,8 @@ and is wrapped around the whole page content, except for the footer in this exam
 <header class="w3-container w3-center w3-padding-32"> 
   <h1><b>E-Surat Kementrian Pendidikan</b></h1>
   <p>Selamat datang di template surat kementrian pendidikan</p>
+  
+  <a href="logout.php" class="btn btn-danger ml-3">Sign Out of Your Account</a>
 </header>
 
 <!-- Grid -->
@@ -87,6 +100,9 @@ and is wrapped around the whole page content, except for the footer in this exam
         Nama :  <input type="text" name="nama"><br>
         Jabatan : <input type="text" name="jabatan"><br>
         NIP : <input type="text" name="nip"><br><br>
+
+        <h4><b>Kirim Surat</b></h4>
+        Email Penerima :  <input type="text" name="penerima"><br>
         <p><button class="w3-button w3-padding-large w3-white w3-border"><b>Kirim</b></button></p>
         
         </form>
@@ -121,7 +137,7 @@ and is wrapped around the whole page content, except for the footer in this exam
 
 <!-- Footer -->
 <footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
-  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+   
 </footer>
 
 </body>
